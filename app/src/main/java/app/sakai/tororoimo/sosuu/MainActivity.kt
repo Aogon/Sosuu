@@ -41,10 +41,12 @@ class MainActivity : AppCompatActivity() {
     fun maru(v: View) {
         var answer = true
         val number = questions[answerCount]
+        var divisor = 0
 
         for (i in 2 until number) {
             if (number % i == 0) {
                 answer = false
+                divisor = i
                 break
             }
         }
@@ -59,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             point++
             Log.d("maru", "正解" + point.toString())
         } else {
-            Log.d("maru", "不正解")
+            Log.d("maru", "不正解（$divisor）で割り切れた")
         }
 
         answerCount ++
@@ -78,10 +80,12 @@ class MainActivity : AppCompatActivity() {
     fun batsu(v: View) {
         var answer = true
         val number = questions[answerCount]
+        var divisor = 0
 
         for (i in 2 until number) {
             if (number % i == 0) {
                 answer = false
+                divisor = i
                 break
             }
         }
@@ -93,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (answer) {
-            Log.d("maru", "不正解")
+            Log.d("maru", "不正解（$divisor）で割り切れた")
         } else {
             point++
             Log.d("maru", "正解" + point.toString())
